@@ -5,6 +5,7 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+Product.delete_all
 
 Product.create(:title => 'Pragmatic Project Automation',
                :description =>
@@ -19,7 +20,7 @@ Product.create(:title => 'Pragmatic Project Automation',
         you'll have more time and energy to do the really
         exciting---and difficult---stuff, like writing quality code.
       </p>},
-               :image_url =>   '/images/auto.jpg',
+               :image_url => '/images/auto.jpg',
                :price => 29.95)
 
 
@@ -35,7 +36,6 @@ Product.create(:title => 'Pragmatic Version Control',
       </p>},
                :image_url => '/images/svn.jpg',
                :price => 28.50)
-
 
 
 Product.create(:title => 'Pragmatic Unit Testing (C#)',
