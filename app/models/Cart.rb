@@ -6,7 +6,7 @@ class Cart
   end
 
   def add_product(product)
-    @items << product
+    @items.push(product)
   end
 
 end
