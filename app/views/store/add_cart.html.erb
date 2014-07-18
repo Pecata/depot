@@ -1,0 +1,10 @@
+<h2>Your Pragmatic Cart</h2>
+<ul>
+  <% for item in @cart.items %>
+      <li><%= item.quantity %> &times; <%= h item.title %></li>
+  <% end %>
+  <%= button_to 'Clear Cart',:controller => 'store',
+                :action => 'clear_cart',
+                :method => 'delete',
+                confirm: "Are you sure?" %>
+</ul>

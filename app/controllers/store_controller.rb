@@ -3,10 +3,16 @@ class StoreController < ApplicationController
     @products = Product.find_product_for_sale
   end
 
-  def add_to_cart
+  def add_cart
     product = Product.find(params[:id])
     @cart = find_cart
     @cart.add_product(product)
+  end
+
+  def clear_cart
+    @cart = find_cart
+    @cart.clear
+    redirect_to :action => 'index'
   end
 
   private

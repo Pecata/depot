@@ -5,6 +5,10 @@ class Cart
     @items = []
   end
 
+  def clear
+    @items = []
+  end
+
   def add_product(product)
     current_item =@items.find { |item| item.product == product }
     if current_item
