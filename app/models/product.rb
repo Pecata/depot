@@ -4,9 +4,9 @@ class Product < ActiveRecord::Base
   validate :price_must_be_a_cent
   validates_uniqueness_of :title
   validates_format_of :image_url,
-                      :with => %r{\.(gif|jpg|png)$}i,
-                      :message => 'must be a URL for GIF, JPG ' + 'or PNG image.',
-                      :multiline => true
+                       :with => %r{.(png|jpg|jpeg)$}i,
+                       :message => 'must be a URL for GIF, JPG ' + 'or PNG image.',
+                       :multiline => true
 
 
   def self.find_product_for_sale
@@ -16,8 +16,9 @@ class Product < ActiveRecord::Base
   protected
 
   def price_must_be_a_cent
-    errors.add(:price, 'should be a least 0.01') if price.nil? || price < 0.01
+    if price.nil? || price < 0.01
+      errors.add(:price, 'should be a least 0.01')
+    end
   end
-
 
 end
