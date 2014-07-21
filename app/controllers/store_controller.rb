@@ -1,6 +1,7 @@
 class StoreController < ApplicationController
   def index
     @products = Product.find_product_for_sale
+    @cart = find_cart
   end
 
   def add_cart
@@ -12,6 +13,7 @@ class StoreController < ApplicationController
     else
       @cart = find_cart
       @cart.add_product(product)
+      redirect
     end
   end
 
@@ -22,8 +24,8 @@ class StoreController < ApplicationController
 
   private
 
-  def redirect(message)
-    flash[:notice] = message
+  def redirect(message=nil)
+    flash[:notice] = message if message
     redirect_to :action => 'index'
   end
 
